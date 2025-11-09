@@ -30,6 +30,9 @@ use size_format::SizeFormatterBinary as SF;
 use tokio_util::sync::CancellationToken;
 use tracing::{debug_span, error, info, trace_span, warn};
 
+#[global_allocator]
+static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
+
 #[derive(Debug, Clone, Copy, ValueEnum)]
 enum LogLevel {
     Trace,
